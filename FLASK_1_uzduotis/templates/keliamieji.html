@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Keliamieji{% endblock %}
+
+{% block content %}
+<!--<h1>Keliamieji nuo 1900 iki 2100:</h1>-->
+<!--<ul>-->
+<!--    {% for metai in metai %}-->
+<!--    <li>{{metai}}</li>-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+<h3>{{ datetime.datetime.today() }}</h3>
+
+<h1>Keliamieji nuo 1900 iki 2100:</h1>
+<ul>
+    {% for metai in range(1900, 2100) %}
+    {% if isleap(metai) %}
+    <li>{{metai}}</li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}

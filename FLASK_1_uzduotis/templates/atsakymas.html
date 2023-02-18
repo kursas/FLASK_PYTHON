@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Ar keliamieji{% endblock %}
+
+{% block content %}
+    {% if isleap(metai) %}
+    <p>Keliamieji</p>
+    {% else %}
+    <p>NEkeliamieji</p>
+    {% endif %}
+<!--    {% if ar_keliamieji %}-->
+<!--    <p>Keliamieji</p>-->
+<!--    {% else %}-->
+<!--    <p>NEkeliamieji</p>-->
+<!--    {% endif %}-->
+    <a class="nav-link" href="/ar_keliamieji">Atgal</a>
+{% endblock %}

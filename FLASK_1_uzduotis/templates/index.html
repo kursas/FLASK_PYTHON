@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Pagrindinis{% endblock %}
+
+{% block content %}
+<h1>Dariaus pati geriausia svetainė!!!</h1>
+<ol>
+    <li>Pirmas įrašas</li>
+    <li>Antras įrašas</li>
+    <li>Trečias įrašas</li>
+    <li>Ketvirtas įrašas</li>
+    <li>Penktas įrašas</li>
+</ol>
+    <p class="badge bg-primary text-wrap" style="width: 6rem">For loop <br>5 TIMES</p>
+        {%for number in range(6)%}
+            <ul>
+                <li>indekso numeris:{{number}}, o ciklo skaičius:{{number*1}}</li>
+            </ul>
+        {% endfor %}
+{% endblock %}

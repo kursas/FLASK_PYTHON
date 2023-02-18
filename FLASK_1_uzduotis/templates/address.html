@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Pagrindinis{% endblock %}
+
+{% block content %}
+<h1>Pasisveikinimas penkis kartus</h1>
+<ul>
+    {% for x in range(5) %}
+    <li>{{vardas}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
