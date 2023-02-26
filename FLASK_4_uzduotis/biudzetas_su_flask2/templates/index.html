@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Pajamos</h2>
+
+<!-- Write out each entry of the incomes -->
+
+{% for entry in income_data %}
+<p>
+  {{ entry["sender"] }} {{ entry["date"] }}. {{ entry["amount"] }} eur. "{{ entry["comment"] }}"
+</p>
+{% endfor %}
+
+<h2>Išlaidos</h2>
+
+<!-- Write out each entry of the expenses -->
+
+{% for entry in expenses_data %}
+<p>
+  {{ entry["payment_method"] }} {{ entry["date"] }}. {{ entry["amount"] }} eur. "{{ entry["comment"] }}"
+</p>
+{% endfor %}
+
+<h2>Balansas: {{ balance }}</h2>
+
+{% endblock %}

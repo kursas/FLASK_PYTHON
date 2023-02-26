@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-group">
+<h2 class="form-control">Pajamos</h2>
+</div>
+<!-- Write out each entry of the incomes -->
+
+{% for entry in income_data %}
+<div class="form-group">
+  {{ entry["sender"] }} {{ entry["date"] }}. {{ entry["amount"]}} eur. "{{ entry["comment"] }}"
+</div>
+{% endfor %}
+
+<div class="form-group">
+<h2 class="form-control">Išlaidos</h2>
+</div>
+<!-- Write out each entry of the expenses -->
+
+{% for entry in expenses_data %}
+<div class="form-group">
+  {{ entry["payment_method"]}} {{ entry["date"] }}. {{ entry["amount"] }} eur. "{{ entry["comment"] }}"
+</div>
+{% endfor %}
+<div class="form-group">
+<h2 class="p-3 mb-2 bg-success text-white">Balansas:{{balance}}</h2>
+</div>
+
+{% endblock %}
