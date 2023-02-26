@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Peticija dėl.....</h1>
+
+<!-- We can personalize the message by adding the name, but then we also need to send the name into this .html page -->
+
+<h2 class="p-3 mb-2 bg-secondary text-white">Ačiū, kad pasirašėte, {{ signee_name }}!</h2>
+
+<h2> Mums liko tik {{ remaining }} parašų!</h2>
+
+<!-- Write out the data of all people who have signed the petition -->
+
+<h3 class="p-3 mb-2 bg-info text-white">Pasirašiusieji:</h3>
+
+{% for person in data %}
+<div class="card bg-light mb-3" style="max-width: 29rem;">
+  <div class="card-header">Pasirašiusiojo/Pasirašiusios kortelė</div>
+  <div class="card-body">
+    <p class="card-text">{{ person["id"] }}. {{ person["name"] }} {{ person["surname"] }} ({{ person["date"] }}) "{{ person["comment"] }}</p>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

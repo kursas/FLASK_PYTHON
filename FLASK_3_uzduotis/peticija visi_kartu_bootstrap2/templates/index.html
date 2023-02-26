@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Peticija dėl ....</h1>
+
+<!-- Flask WTF form, need to send it as an argument into the .html file -->
+
+<form method="post" action="#">
+  {{ form.hidden_tag() }}
+  <div class="form-group">
+  {{ form.name.label(class="form-control-label") }}
+  {{ form.name(class="form-control") }}
+  </div>
+  <div class="form-group">
+  {{ form.surname.label(class="form-control-label") }}
+  {{ form.surname(class="form-control") }}
+  </div>
+  <div class="form-group">
+  {{ form.comment.label(class="form-control-label") }}
+  {{ form.comment(class="form-control", rows="3") }}
+  </div>
+<!--{{ form.submit}}-->
+  <p>
+    <input type="submit" value="Siusti" class="btn btn-danger">
+  </p>
+</form>
+<br>
+<h3 class="p-3 mb-2 bg-success text-white">Pasirašiusieji:</h3>
+
+<!-- Write out the data of all people who have signed the petition -->
+
+{% for person in data %}
+<p class="p-3 mb-2 bg-info text-white">
+  {{ person["id"] }}. {{ person["name"] }} {{ person["surname"] }} ({{ person["date"] }}) "{{ person["comment"] }}"
+</p>
+
+<div class="d-flex flex-column">
+  <div class="p-2">Pasirašiusiojo/Pasirašiusios numeris:{{ person["id"] }}</div>
+  <div class="p-2">Pasirašiusiojo/Pasirašiusios vardas:{{ person["name"] }}</div>
+  <div class="p-2">Pasirašiusiojo/Pasirašiusios pavardė:{{ person["surname"] }}</div>
+  <div class="p-2">Peticijos pasirašymo data ir laikas:{{ person["date"] }}</div>
+  <div class="p-2">Pasirašiusiojo/Pasirašiusios komentaras:{{ person["comment"] }}</div>
+</div>
+{% endfor %}
+{% endblock %}
